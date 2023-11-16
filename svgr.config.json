@@ -1,0 +1,12 @@
+{
+    "removeViewBox": false,
+    "replaceAttrValues": {
+        "currentColor": "#000"
+    },
+    "svgProps": {
+        "width": "{props.width || 32}",
+        "height": "{props.height || 32}",
+        "fill": "{props.fill || '#8C8C8C'}",
+        "stroke": "{props.stroke || 'none'}"
+    }
+}
