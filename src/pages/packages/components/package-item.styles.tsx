@@ -25,6 +25,9 @@ export const StyledPackageCard = styled(Card)<PackageCardProps>`
   .ant-card-cover img {
     border-radius:0;
   }
+  @media (max-width: 1024px) {
+    display:inherit;
+  }
 `;
 
 

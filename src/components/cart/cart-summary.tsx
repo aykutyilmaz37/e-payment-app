@@ -4,9 +4,10 @@ import React from 'react';
 
 type Props={
   callbackButton: () => void;
+  callbackLoading?: boolean;
 }
 
-const CartSummary: React.FC<Props> = ({callbackButton}) => {
+const CartSummary: React.FC<Props> = ({callbackButton,callbackLoading}) => {
 
   const handleNextStep = () => {
     callbackButton && callbackButton();
@@ -17,10 +18,14 @@ const CartSummary: React.FC<Props> = ({callbackButton}) => {
         <TotalPrice />
       </Col>
       <Col span={24}>
-        <Button type='primary' onClick={handleNextStep} style={{ width: '100%'}}>Payment</Button>
+        <Button type='primary' onClick={handleNextStep} loading={callbackLoading} style={{ width: '100%'}}>Payment</Button>
       </Col>
     </Row>
   );
 };
+
+CartSummary.defaultProps ={
+  callbackLoading: false
+}
 
 export default CartSummary;

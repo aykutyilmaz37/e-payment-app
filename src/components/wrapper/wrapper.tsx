@@ -4,7 +4,7 @@ import { StyledCardContainer, StyledWrapperRow } from './wrapper.styles';
 
 type Props = RowProps & {
   children: React.ReactElement;
-  width?: number;
+  colWidth?: Object;
   height?: string;
   loading?: boolean;
   hideContainer?: boolean;
@@ -12,19 +12,43 @@ type Props = RowProps & {
 
 const Wrapper: React.FC<Props> = ({
   children,
-  width,
+  colWidth,
   height,
   loading,
   hideContainer,
   ...props
 }) => {
   return (
-    <div {...props}>{children}</div>
+    <StyledWrapperRow
+      align='middle'
+      justify='center'
+      style={{ height: `${height ? height : 'auto'}` }}
+      {...props}
+    >
+      <Col {...colWidth}>
+        {loading ? (
+          <Flex
+            justify='center'
+            align='center'
+            style={{ height: 'calc(100vh - 85px)' }}
+          >
+            <Spin />
+          </Flex>
+        ) : hideContainer ? (
+          children
+        ) : (
+          <StyledCardContainer>{children}</StyledCardContainer>
+        )}
+      </Col>
+    </StyledWrapperRow>
   );
 };
 
 Wrapper.defaultProps = {
   loading: false,
+  colWidth: {
+    span: 24,
+  },
 };
 
 export default Wrapper;

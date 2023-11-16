@@ -1,48 +1,21 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router';
-import { LOGIN } from 'store/app/types';
-import { Button, Form, Input, message } from 'antd';
+import React from 'react';
+import { Button, Form, Input } from 'antd';
 import { MailOutlined, UserOutlined } from '@ant-design/icons';
-import { UserType } from 'types/user';
-import useMutateSignup from 'services/hooks/useMutateSignup';
+import UserType from 'types/user';
 
-const SignupForm: React.FC = () => {
-  const [formValues, setFormValues] = useState<UserType | null>();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const { mutate: signup } = useMutateSignup({
-    onSuccess: (data) => {
-      if (data.message === 'Signup completed!') {
-        dispatch({
-          type: LOGIN,
-          payload: formValues,
-        });
-        localStorage.setItem('user', window.btoa(JSON.stringify(formValues)));
-        navigate('/');
-        setFormValues(null);
-        message.success('Success');
-      } else {
-        message.error('Login failed');
-      }
-    },
-  });
+type Props ={
+  onFinish: (values:UserType) => any;
+  loading: boolean;
+}
 
-  const onFinish = async (values: any) => {
-    setFormValues(values);
-    await signup(values);
-  };
-
-  const onFinishFailed = (errorInfo: any) => {
-    message.error(errorInfo);
-  };
+const SignupForm: React.FC<Props> = ({ onFinish, loading }) => {
+ 
 
   return (
     <Form
       name='signup'
       layout={'vertical'}
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       autoComplete='off'
     >
       <Form.Item
@@ -69,7 +42,7 @@ const SignupForm: React.FC = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type='primary' htmlType='submit' style={{ width:'100%'}}>
+        <Button type='primary' htmlType='submit' loading={loading} style={{ width:'100%'}}>
           Continue
         </Button>
       </Form.Item>

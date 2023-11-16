@@ -8,6 +8,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    chunkFilename: '[name].[contenthash].js', 
+    publicPath: '/'
   },
   
   resolve: {
@@ -32,29 +34,12 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|jp(e*)g|gif)$/,
+        test: /\.(png|jp(e*)g|gif|svg)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: 'images/[hash]-[name].[ext]',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-react'],
-            },
-          },
-          {
-            loader: '@svgr/webpack',
-            options: {
-              configFile: path.resolve('svgr.config.json'),
             },
           },
         ],

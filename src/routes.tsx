@@ -21,7 +21,7 @@ export const routes = [
     Component: PageNavigation(import('pages/payment')),
   },
   {
-    path: '/success',
+    path: '/success/:id',
     Component: PageNavigation(import('pages/success')),
   },
 ];

@@ -9,14 +9,15 @@ const { Text } = Typography;
 
 type Props = {
   callbackButton: () => void;
+  callbackLoading?: boolean;
 };
 
-const Cart: React.FC<Props> = ({ callbackButton }) => {
+const Cart: React.FC<Props> = ({ callbackButton, callbackLoading }) => {
   const selectedPackages = useSelector(
     (state: RootState) => state.app.selectedPackages
   );
   return (
-    <Wrapper width={24} height='auto'>
+    <Wrapper colWidth={{ span:24 }} height='auto'>
       <Col span={24}>
         <Row>
           <Col span={24} style={{ marginBottom: 10 }}>
@@ -31,7 +32,10 @@ const Cart: React.FC<Props> = ({ callbackButton }) => {
               </Col>
               <Col span={24}>
                 <Divider />
-                <CartSummary callbackButton={callbackButton} />
+                <CartSummary
+                  callbackButton={callbackButton}
+                  callbackLoading={callbackLoading}
+                />
               </Col>
             </>
           ) : (
@@ -47,5 +51,8 @@ const Cart: React.FC<Props> = ({ callbackButton }) => {
   );
 };
 
+Cart.defaultProps = {
+  callbackLoading: false,
+};
 
 export default Cart;

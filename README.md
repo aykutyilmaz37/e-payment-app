@@ -1,17 +1,21 @@
-# weather-app
+# e-payment-app
 
-Weather App Uygulamasi
+E-Payment App Uygulamasi
 
 ### Açıklama:
 
 - Projeyi paketleri tek tek kurarak olusturdum.
-- Weather Api servisi kullanarak datayi cektim.
-- Webpack konfigurasyonlarini bildigim kadariyla yaptim
-- Css olarak tailwind kullandim.
+- Giris Ekrani, Paket Listeleme, Paket Detay, Odeme ve Sonuc Sayfalari yapildi.
+- Giris ekraninda basit bir authentication yapildi.
+- Odeme ve Sonuc ekraninda secili paket yok ise  bu sayfalara erisim kontrolu yapildi.
+- Sayfa yenileyince secilen paketler gitmemesi icin localstorage de tutup  odeme yapilinca secili paketler bosaltildi.
+- Verilen mock apiler kullanildi.
+- Webpack konfigurasyonlari yapildi.
+- Antd Design ve styled components kullanildi.
 - Typescript kullanildi.
 - Redux ile state management yapildi.
-- Tarayicidan lokasyon bilgisi alinip lokasyona gore  saatlik gosterim yapildi.
-- useInterval adinda bir hook olustururarak 10 saniye de bir servise istek gonderilme islemi yapildi.
+- Servis istegi atmak icin react-query ve axios kutuphanelerinden faydalanildi.
+- Type'lara dikkat edilmeye calisildi.
 
 
 ### Kurulum ve Projeyi Calistirma:
@@ -20,4 +24,4 @@ Weather App Uygulamasi
 - **npm run start** ya da **yarn start**
 
 #### Demo
-https://react-weather-app-aykut.netlify.app/
+https://react-e-payment-app-aykut.netlify.app/

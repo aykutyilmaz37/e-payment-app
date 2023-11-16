@@ -37,10 +37,10 @@ const PackageDetail: React.FC = () => {
   const imgPath = replaceImage(packageDetail.imagePath, 'Package', '1000x300');
 
   return (
-    <Wrapper hideContainer loading={isLoading}>
+    <Wrapper hideContainer loading={isLoading} >
       <Row justify='center' align='top' gutter={24}>
-        <Col span={12}>
-          <Wrapper width={24} height='auto'>
+        <Col lg={12} xs={24}>
+          <Wrapper colWidth={{ span:24 }} height='auto'>
             <Col span={24}>
               <Row>
                 <Col span={24} style={{ marginBottom: 24 }}>
@@ -113,7 +113,7 @@ const PackageDetail: React.FC = () => {
             </Col>
           </Wrapper>
         </Col>
-        <Col span={6}>
+        <Col lg={6} xs={24}>
           <Cart callbackButton={handleGoToPayment} />
         </Col>
       </Row>

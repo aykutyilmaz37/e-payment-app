@@ -8,10 +8,10 @@ const Packages = () => {
   const { data: packages, isLoading } = useFetchPackages({});
 
   return (
-    <Wrapper hideContainer width={14} loading={isLoading}>
-      <Row justify='center' align='top' gutter={24}>
+    <Wrapper hideContainer loading={isLoading}>
+      <Row justify='center' align='top'>
         <Col>
-          <Wrapper width={24} height='auto'>
+          <Wrapper colWidth={{ xs:24, lg: 14 }} height='auto'>
             <PackageList packages={packages} />
           </Wrapper>
         </Col>

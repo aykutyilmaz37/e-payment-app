@@ -11,7 +11,7 @@ type Props = {
 const PackageList: React.FC<Props> = ({ packages }) => {
   return (
     <Row>
-      <Col span={24} style={{ maxHeight: 500, overflow: 'auto' }}>
+      <Col span={24} style={{ maxHeight: 500, overflowX: 'hidden' }}>
         <Row gutter={24}>
           {packages.map((item) => (
             <PackageItem key={item.id} packageItem={item} />

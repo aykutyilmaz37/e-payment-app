@@ -59,7 +59,7 @@ const PackageItem: React.FC<Props> = ({ packageItem }) => {
   };
 
   return (
-    <StyledPackageCol span={12}>
+    <StyledPackageCol lg={12} xs={24}>
       <StyledPackageCard
         cover={
           <Image
@@ -67,6 +67,7 @@ const PackageItem: React.FC<Props> = ({ packageItem }) => {
             alt={packageItem.name}
             preview={false}
             height={140}
+            
           />
         }
         onClick={() => handleSelectPackage(packageItem)}
