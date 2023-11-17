@@ -35,7 +35,7 @@ const SignupForm: React.FC<Props> = ({ onFinish, loading }) => {
             type: 'email',
             message: 'The input is not valid email!',
           },
-          { required: true, message: 'Please input your password!' },
+          { required: true, message: 'Please input your email!' },
         ]}
       >
         <Input prefix={<MailOutlined />} />

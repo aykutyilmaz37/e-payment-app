@@ -17,6 +17,7 @@ const Header: React.FC = () => {
       payload: null,
     });
     localStorage.removeItem('user');
+    localStorage.removeItem('selectedPackages');
     navigate('/signup');
   };
   return (
